@@ -8,26 +8,24 @@
 
   <title>KNH MEETING</title>
   <?php require_once('jsAndCss.php'); ?>
+  <script src="ajax/booking.js"></script>
 </head>
 
 <body>
   <?php require_once('components/navbar.php') ?>
   <div class="container-fulid">
     <div class="row mt-3">
+      <input type="hidden" id="roomId" value="<?php echo $_GET['roomId']; ?>">
       <div class="col-1">
       </div>
       <div class="col-10">
-        <h2 class="mb-3">เลือกห้องประชุม</h2>
-
-        <div class="row" id="contentRoom">
-        </div>
-
+        <h2 id="roomName"></h2>
+        <div id='calendar'></div>
       </div>
       <div class="col-1">
       </div>
     </div>
   </div>
-  <script src="ajax/main.js"></script>
 </body>
 
 </html>
