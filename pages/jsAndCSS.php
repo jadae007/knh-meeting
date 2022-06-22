@@ -7,6 +7,8 @@
 <script src="../assets/js/soloAlert.js" type="text/javascript"></script> 
 <script type="text/javascript" src="../assets/DataTables/datatables.min.js"></script>
 <script src='../assets/fullcalendar5.11.0/lib/main.js'></script>
+<script src='../assets/fullcalendar5.11.0/lib/locales-all.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js"></script>
 
 
 <style>
@@ -16,5 +18,6 @@
 }
 body{
   font-family: "Prompt-Regular";
+  background-color: #EEEE;
 }
 </style>
