@@ -33,7 +33,9 @@
   <div class="modal fade" id="modalBooking" tabindex="-1" aria-labelledby="modalBookingLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
-        <form method="post" id="bookingForm">
+        <form method="post" id="bookingForm" enctype="multipart/form-data">
+          <input type="hidden" name="selectedDate" id="selectedDate">
+          <input type="hidden" name="selectedRoom" id="selectedRoom" value="<?php echo $_GET['roomId'] ?>">
           <div class="modal-header">
             <h5 class="modal-title" id="modalBookingLabel">จองห้องประชุม</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -42,15 +44,15 @@
             <div class="mb-3">
               <h5>ช่วงเวลา</h5>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="morning" id="morning" name="morning" required>
+                <input class="form-check-input validateCheck" type="checkbox" value="morning" id="morning" name="morning">
                 <label class="form-check-label" for="morning"> เช้า ตั้งแต่เวลา 8.30 น. ถึง เวลา 12.00 น.</label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="afterNoon" id="afterNoon" name="afterNoon" required>
+                <input class="form-check-input validateCheck" type="checkbox" value="afterNoon" id="afterNoon" name="afterNoon">
                 <label class="form-check-label" for="afterNoon"> บ่าย ตั้งแต่เวลา 13.00 น. ถึง เวลา 16.30 น.</label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="evening" id="evening" name="afterNoon" required>
+                <input class="form-check-input validateCheck" type="checkbox" value="evening" id="evening" name="evening">
                 <label class="form-check-label" for="evening"> เย็น ตั้งแต่เวลา 18.00 น. ถึง เวลา 23.00 น.</label>
               </div>
               <hr>
@@ -96,13 +98,13 @@
               <div class="col-6">
                 <label for="food" class="form-label">อาหารว่าง/อาหารกลางวัน/อาหารเย็น</label>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="food" id="food1">
+                  <input class="form-check-input" type="radio" name="Food" id="food1" value="noFood" required>
                   <label class="form-check-label" for="food1">
                     ดำเนินการจัดหาเอง
                   </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="food" id="food2">
+                  <input class="form-check-input" type="radio" name="Food" id="food2" value="needFood">
                   <label class="form-check-label" for="food2">
                     ขอสนันสนุนจากสวัสดิการโรงพยาบาลฯ
                   </label>
@@ -136,9 +138,13 @@
               <textarea class="form-control" id="comment" name="comment"></textarea>
             </div>
             <div class="row">
-              <h6>ผู้จองห้องประชุม</h6><span>
-                
-              </span>
+              <h6>ผู้จองห้องประชุม</h6>
+              <div class="form-check">
+                <label class="form-check-label" for="checkBooker">
+                  <input class="form-check-input" type="checkbox" value="chacked" id="checkBooker">
+                  เหมือนกับผู้ประสาน
+                </label>
+              </div>
               <div class="col-md-6">
                 <label for="bookerName" class="form-label">ลงชื่อ</label>
                 <input type="text" class="form-control" id="bookerName" name="bookerName" required>

@@ -1,28 +1,72 @@
-var selectedDate = ""
-var selectedRoom = "";
+var selectedDate = "";
 $(document).ready(function () {
   var roomId = $("#roomId").val();
   showInfoRoom(roomId);
   showBooking(roomId);
-  $("#optionFood").hide()
-  $("#modalBooking").modal('show')
+  $("#optionFood").hide();
+  // $("#modalBooking").modal("show");
 
-
-  $("#bookingForm").submit(function (e) { 
+  $("#bookingForm").submit(function (e) {
     e.preventDefault();
-    console.log(selectedRoom,selectedDate);
+    let data = new FormData(e.target);
+    if (checkBoxChecker()) {
+      $(".validateCheck").removeClass("is-invalid");
+      $.ajax({
+        type: "POST",
+        enctype: "multipart/form-data",
+        url: "query/booking",
+        data,
+        contentType: false,
+        cache: false,
+        processData: false,
+        success: function (response) {
+          console.log(response);
+        },
+      });
+    } else {
+      $(".validateCheck").addClass("is-invalid");
+    }
   });
 
-  $("#food1").change(function (e) { 
-    e.preventDefault();
-    $("#optionFood").hide()
+  $("#modalBooking").on("hidden.bs.modal", function () {
+    $("#morning").attr("disabled", false);
+    $("#afterNoon").attr("disabled", false);
+    $("#evening").attr("disabled", false);
   });
 
-  $("#food2").change(function (e) { 
+  $("#food1").change(function (e) {
     e.preventDefault();
-    $("#optionFood").show()
+    $("#optionFood").hide();
+  });
+
+  $("#food2").change(function (e) {
+    e.preventDefault();
+    $("#optionFood").show();
+  });
+
+  $("#checkBooker").change(function (e) {
+    e.preventDefault();
+    let coordinatorName = $("#coordinatorName").val();
+    let coordinatorTel = $("#coordinatorTel").val();
+    if ($("#checkBooker").is(":checked")) {
+      $("#bookerName").val(coordinatorName);
+      $("#bookerTel").val(coordinatorTel);
+    } else {
+      $("#bookerName").val("");
+      $("#bookerTel").val("");
+    }
+  });
+  $(".validateCheck").change(function (e) {
+    console.log(checkBoxChecker());
+    e.preventDefault();
+    if (checkBoxChecker()) return $(".validateCheck").removeClass("is-invalid");
   });
 });
+
+const checkBoxChecker = () => {
+  let detail = document.querySelectorAll(".validateCheck");
+  return Array.prototype.slice.call(checkboxes).some((x) => x.checked);
+};
 
 const showInfoRoom = (roomId) => {
   $.ajax({
@@ -56,12 +100,12 @@ const showBooking = (roomId) => {
 
 const createCalendar = (events) => {
   const calendarEl = document.getElementById("calendar");
-  $("#calendar").children().remove()
+  $("#calendar").children().remove();
 
   var calendar = new FullCalendar.Calendar(calendarEl, {
     height: 650,
     initialView: "dayGridMonth",
-    locale:'th',
+    locale: "th",
     editable: true,
     // displayEventEnd: true,
     eventSources: [
@@ -71,8 +115,7 @@ const createCalendar = (events) => {
         borderColor: "blue",
       },
     ],
-    dateClick: function (info) {
-      checkBooking(`${roomId.value}`, `${info.dateStr}`);
+    dateClick: function (info) {   
       // alert("Clicked on: " + info.dateStr);
       // alert("Current view: " + info.view.type);
       // change the day's background color just for fun
@@ -80,7 +123,9 @@ const createCalendar = (events) => {
   });
   calendar.render();
 };
-
+const checkAllDay = (detail) => {
+  return Array.prototype.slice.call(detail).some((x) => x.allDay == "1");
+};
 const checkBooking = (roomId, start) => {
   $.ajax({
     type: "GET",
@@ -90,16 +135,38 @@ const checkBooking = (roomId, start) => {
       start,
     },
     success: function (response) {
-      const { booked } = JSON.parse(response);
-      console.log(booked);
-      if (booked <= 2) {
-        $("#modalBooking").modal("show");
-        selectedDate = start;
-        selectedRoom = roomId;
+      const { booked, detail } = JSON.parse(response);
+      if (!checkAllDay(detail)) {
+        if (booked <= 2) {
+          detail.forEach((element) => {
+            let array = element.start.split(" ");
+            let booked1 = array[1];
+            if (element.allDay == "1") return 1;
+            if (booked1 == "08:30:00") {
+              $("#morning").attr("disabled", true);
+            }
+            if (booked1 == "13:00:00") {
+              $("#afterNoon").attr("disabled", true);
+            }
+            if (booked1 == "18:00:00") {
+              $("#evening").attr("disabled", true);
+            }
+          });
+          $("#modalBooking").modal("show");
+          $("#selectedDate").val(start);
+          $("#selectedRoom").val(roomId);
+        } else {
+          SoloAlert.alert({
+            title: "ห้องประชุมนี้ถูกจองเต็มแล้ว",
+            body: "ไม่สามารถจองได้ ห้องประชุมนี้ถูกจองเต็มแล้ว",
+            icon: "error",
+            useTransparency: true,
+          });
+        }
       } else {
         SoloAlert.alert({
-          title:"ห้องประชุมนี้ถูกจองเต็มแล้ว",
-          body:"ไม่สามารถจองได้ ห้องประชุมนี้ถูกจองเต็มแล้ว",
+          title: "ห้องประชุมนี้ถูกจองเต็มแล้ว",
+          body: "ไม่สามารถจองได้ ห้องประชุมนี้ถูกจองเต็มแล้ว",
           icon: "error",
           useTransparency: true,
         });
@@ -107,7 +174,3 @@ const checkBooking = (roomId, start) => {
     },
   });
 };
-
-const bookMeeting = (roomId, start) =>{
-console.log(roomId , start)
-}

@@ -18,11 +18,9 @@
       </div>
       <div class="col-10">
         <h2 class="mb-3">เลือกห้องประชุม</h2>
-
         <div class="row" id="contentRoom">
-   
-        </div>
 
+        </div>
       </div>
       <div class="col-1">
       </div>
@@ -30,21 +28,20 @@
   </div>
 
 
-<!-- Modal -->
-<div class="modal fade" id="modalImage" tabindex="-1" aria-labelledby="modalImageLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modalImageLabel"></h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  <!-- Modal -->
+  <div class="modal fade" id="modalImage" tabindex="-1" aria-labelledby="modalImageLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalImageLabel"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img class="img-fluid" id="imgRoom" style="width:95%;" alt="...">
+        </div>
       </div>
-      <div class="modal-body">
-      <img class="img-fluid" id="imgRoom" alt="...">
-      </div>
-    
     </div>
   </div>
-</div>
 
   <script src="ajax/main.js"></script>
 </body>
