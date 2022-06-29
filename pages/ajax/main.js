@@ -1,5 +1,6 @@
 $(document).ready(() => {
   showALlRoom();
+  $("#footer").removeClass("fixed-bottom");
 });
 
 const showALlRoom = () => {

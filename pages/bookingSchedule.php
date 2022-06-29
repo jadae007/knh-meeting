@@ -12,6 +12,20 @@
 </head>
 <body>
   <?php require_once('components/navbar.php') ?> 
-  <h1>hello</h1>
+  <div class="container-fluid">
+    <div class="row mt-4">
+      <div class="col-1"></div>
+      <div class="col">
+      <figure>
+          <blockquote class="blockquote">
+            <p>KNH-MEETING</p>
+          </blockquote>
+          <figcaption class="blockquote-footer">
+            ตารางการจองห้องประชุม
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

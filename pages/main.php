@@ -2,6 +2,10 @@
 <html lang="en">
 
 <head>
+  
+  <meta http-equiv='cache-control' content='no-cache'>
+  <meta http-equiv='expires' content='0'>
+  <meta http-equiv='pragma' content='no-cache'>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +21,14 @@
       <div class="col-1">
       </div>
       <div class="col-10">
-        <h2 class="mb-3">เลือกห้องประชุม</h2>
+      <figure>
+          <blockquote class="blockquote">
+            <p>KNH-MEETING</p>
+          </blockquote>
+          <figcaption class="blockquote-footer">
+           จองห้องประชุม
+          </figcaption>
+        </figure>
         <div class="row" id="contentRoom">
 
         </div>
@@ -42,7 +53,7 @@
       </div>
     </div>
   </div>
-
+  <?php require('components/footer.php'); ?>
   <script src="ajax/main.js"></script>
 </body>
 

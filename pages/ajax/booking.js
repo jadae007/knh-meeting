@@ -20,7 +20,27 @@ $(document).ready(function () {
         cache: false,
         processData: false,
         success: function (response) {
-          console.log(response);
+          const { status, message } = JSON.parse(response);
+          if (status == "true") {
+            SoloAlert.alert({
+              title: "จองห้องประชุมเรียบร้อยแล้ว",
+              body: message,
+              icon: "success",
+              useTransparency: true,
+              onOk:()=>{
+                $("#modalBooking").modal("hide");
+                $("#optionFood").hide();
+              }
+            });
+            showBooking(roomId)
+          } else {
+            SoloAlert.alert({
+              title: "ไม่สามารถจองห้องประชุมได้",
+              body: message,
+              icon: "error",
+              useTransparency: true,
+            });
+          }
         },
       });
     } else {
@@ -65,7 +85,7 @@ $(document).ready(function () {
 
 const checkBoxChecker = () => {
   let detail = document.querySelectorAll(".validateCheck");
-  return Array.prototype.slice.call(checkboxes).some((x) => x.checked);
+  return Array.prototype.slice.call(detail).some((x) => x.checked);
 };
 
 const showInfoRoom = (roomId) => {
@@ -115,7 +135,8 @@ const createCalendar = (events) => {
         borderColor: "blue",
       },
     ],
-    dateClick: function (info) {   
+    dateClick: function (info) {
+      checkBooking(`${roomId.value}`, `${info.dateStr}`);
       // alert("Clicked on: " + info.dateStr);
       // alert("Current view: " + info.view.type);
       // change the day's background color just for fun
@@ -152,6 +173,8 @@ const checkBooking = (roomId, start) => {
               $("#evening").attr("disabled", true);
             }
           });
+          $(".validateCheck").removeClass("is-invalid");
+          $("#bookingForm")[0].reset();
           $("#modalBooking").modal("show");
           $("#selectedDate").val(start);
           $("#selectedRoom").val(roomId);

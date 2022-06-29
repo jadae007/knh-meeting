@@ -1,11 +1,26 @@
 <?php 
-print_r($_POST);
-
+require('connect.php');
 $selectedDate = $_POST['selectedDate'];
-$roomId = $_POST['roomId'];
-(isset($_POST['morning'])) ? $morning = $_POST['morning'] : $morning="";
-(isset($_POST['afterNoon'])) ? $afterNoon = $_POST['afterNoon'] : $afterNoon="";
-(isset($_POST['evening'])) ? $evening = $_POST['evening'] : $evening="";
+$roomId = $_POST['selectedRoom'];
+
+if(isset($_POST['morning'])){
+  $morning = $_POST['morning'];
+}else{
+  $morning = "";
+}
+
+if(isset($_POST['afterNoon'])){
+  $afterNoon = $_POST['afterNoon'];
+}else{
+  $afterNoon = "";
+}
+
+if(isset($_POST['evening'])){
+  $evening = $_POST['evening'];
+}else {
+  $evening = "";
+}
+  
 $title = $_POST['title'];
 $participants = $_POST['participants'];
 $departmentName = $_POST['departmentName'];
@@ -22,9 +37,8 @@ $comment = $_POST['comment'];
 $bookerName = $_POST['bookerName'];
 $bookerTel = $_POST['bookerTel'];
 
-// if($morning != "" && $afterNoon !="" && $evening != ""){
+$bookingStatus = "true";
 
-// }
 if($Food = "needFood"){
   $arrayFood = [];
 (!empty($morningBreak))? array_push($arrayFood,$morningBreak) : array_push($arrayFood,0);
@@ -36,4 +50,195 @@ if($Food = "needFood"){
 }
 $stringFood = serialize($arrayFood);
 
+if($morning != "" && $afterNoon !="" && $evening != ""){
+  $sql = "INSERT INTO
+  `booking`(
+      `roomId`,
+      `title`,
+      `start`,
+      `end`,
+      `allDay`,
+      `participants`,
+      `departmentName`,
+      `departmentTel`,
+      `coordinatorName`,
+      `coordinatorTel`,
+      `formatId`,
+      `food`,
+      `comment`,
+      `bookerName`,
+      `bookerTel`,
+      `status`
+  )
+  VALUES (
+      '$roomId',
+      '$title',
+      '$selectedDate',
+      '$selectedDate',
+      '1',
+      '$participants',
+      '$departmentName',
+      '$departmentTel',
+      '$coordinatorName',
+      '$coordinatorTel',
+      '$format',
+      '$stringFood',
+      '$comment',
+      '$bookerName',
+      '$bookerTel',
+      '1'
+  )";
+ if(mysqli_query($conn,$sql)){
+   $message = "จองสำเร็จ";
+  }else{
+    $message = mysqli_error($conn);
+    $bookingStatus = "false";
+  }
+
+}else{
+  if($morning != ""){
+    $start =  $selectedDate . " " . "08:30:00";
+    $end = $selectedDate . " " . "12:00:00";
+    $sql = "INSERT INTO
+    `booking`(
+        `roomId`,
+        `title`,
+        `start`,
+        `end`,
+        `allDay`,
+        `participants`,
+        `departmentName`,
+        `departmentTel`,
+        `coordinatorName`,
+        `coordinatorTel`,
+        `formatId`,
+        `food`,
+        `comment`,
+        `bookerName`,
+        `bookerTel`,
+        `status`
+    )
+    VALUES (
+        '$roomId',
+        '$title',
+        '$start',
+        '$end',
+        '0',
+        '$participants',
+        '$departmentName',
+        '$departmentTel',
+        '$coordinatorName',
+        '$coordinatorTel',
+        '$format',
+        '$stringFood',
+        '$comment',
+        '$bookerName',
+        '$bookerTel',
+        '1'
+    )";
+    if(mysqli_query($conn,$sql)){
+      $message = "จองสำเร็จ";
+     }else{
+       $message = mysqli_error($conn);
+       $bookingStatus = "false";
+     }
+  }
+  if($afterNoon != ""){
+    $start =  $selectedDate . " " . "13:00:00";
+    $end = $selectedDate . " " . "16:30:00";
+    $sql = "INSERT INTO
+    `booking`(
+        `roomId`,
+        `title`,
+        `start`,
+        `end`,
+        `allDay`,
+        `participants`,
+        `departmentName`,
+        `departmentTel`,
+        `coordinatorName`,
+        `coordinatorTel`,
+        `formatId`,
+        `food`,
+        `comment`,
+        `bookerName`,
+        `bookerTel`,
+        `status`
+    )
+    VALUES (
+        '$roomId',
+        '$title',
+        '$start',
+        '$end',
+        '0',
+        '$participants',
+        '$departmentName',
+        '$departmentTel',
+        '$coordinatorName',
+        '$coordinatorTel',
+        '$format',
+        '$stringFood',
+        '$comment',
+        '$bookerName',
+        '$bookerTel',
+        '1'
+    )";
+    if(mysqli_query($conn,$sql)){
+      $message = "จองสำเร็จ";
+     }else{
+       $message = mysqli_error($conn);
+       $bookingStatus = "false";
+     }
+  }
+  if($evening != ""){
+    $start =  $selectedDate . " " . "18:00:00";
+    $end = $selectedDate . " " . "23:00:00";
+    $sql = "INSERT INTO
+    `booking`(
+        `roomId`,
+        `title`,
+        `start`,
+        `end`,
+        `allDay`,
+        `participants`,
+        `departmentName`,
+        `departmentTel`,
+        `coordinatorName`,
+        `coordinatorTel`,
+        `formatId`,
+        `food`,
+        `comment`,
+        `bookerName`,
+        `bookerTel`,
+        `status`
+    )
+    VALUES (
+        '$roomId',
+        '$title',
+        '$start',
+        '$end',
+        '0',
+        '$participants',
+        '$departmentName',
+        '$departmentTel',
+        '$coordinatorName',
+        '$coordinatorTel',
+        '$format',
+        '$stringFood',
+        '$comment',
+        '$bookerName',
+        '$bookerTel',
+        '1'
+    )";
+    if(mysqli_query($conn,$sql)){
+      $message = "จองสำเร็จ";
+     }else{
+       $message = mysqli_error($conn);
+       $bookingStatus = "false";
+     }
+  }
+}
+
+echo json_encode(array("status"=>$bookingStatus,"message"=>$message),JSON_UNESCAPED_UNICODE);
+mysqli_close($conn);
 ?>
