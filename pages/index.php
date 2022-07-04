@@ -10,7 +10,38 @@
 </head>
 
 <body>
-  <a href="main" class="btn btn-primary btn-lg" tabindex="-1" role="button">เข้าสู่ระบบ</a>
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-3">
+      </div>
+      <div class="col-6">
+        <div class="card">
+          <div class="card-body">
+            <div class="row mb-5 text-center">
+              <h2>KNH-Meeting </h2>
+              <h5 class="text-muted">Login to continue.</h5>
+            </div>
+            <form>
+              <div class="form-outline mb-4">
+                <input type="email" id="form2Example1" class="form-control" />
+                <label class="form-label" for="form2Example1">Email address</label>
+              </div>
+              <div class="form-outline mb-4">
+                <input type="password" id="form2Example2" class="form-control" />
+                <label class="form-label" for="form2Example2">Password</label>
+              </div>
+              <a href="main" class="btn btn-primary btn-block mb-4">Login</a>
+              <!-- <button type="button" class="btn btn-primary btn-block mb-4">Login</button> -->
+            </form>
+          </div>
+        </div>
+        <div class="col-3">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 </body>
 
 </html>
