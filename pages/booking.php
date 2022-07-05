@@ -20,7 +20,7 @@
       </div>
       <div class="col-10">
         <h2 id="roomName"></h2>
-        <div id='calendar'></div>
+        <div id='calendar' class="c"></div>
         <!-- <button type="button" class="btn btn-warning mt-4">กลับ</button> -->
         <a href="main" class="btn btn-warning mt-4">กลับ</a>
       </div>

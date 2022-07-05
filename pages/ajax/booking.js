@@ -121,7 +121,6 @@ const showBooking = (roomId) => {
 const createCalendar = (events) => {
   const calendarEl = document.getElementById("calendar");
   $("#calendar").children().remove();
-
   var calendar = new FullCalendar.Calendar(calendarEl, {
     height: 650,
     initialView: "dayGridMonth",
