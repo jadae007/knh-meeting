@@ -27,6 +27,7 @@ const showALlRoom = () => {
                     </div>
                     <div class="card-footer bg-transparent text-center">
                       <a href="booking?roomId=${element.id}" class="btn btn-success">จอง</a>`
+                      html+= ` <a href="editRoom?roomId=${element.id}" class="btn btn-warning">แก้ไข</a>`
         html+= `    </div>
                   </div>
                 </div>`

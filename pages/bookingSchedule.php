@@ -60,14 +60,16 @@
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="modalBookingLabel">จองห้องประชุม</h5>
+            <h5 class="modal-title" id="modalBookingLabel"></h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <form id="form">
             <div class="mb-3">
-              <h5>ช่วงเวลา</h5>
-              <div class="form-check">
+              <div class="row">
+                <div class="col-6">
+                  <h5>ช่วงเวลา</h5>
+                  <div class="form-check">
                 <input class="form-check-input validateCheck" type="checkbox" value="morning" id="morning" name="morning" disabled>
                 <label class="form-check-label" for="morning"> เช้า ตั้งแต่เวลา 8.30 น. ถึง เวลา 12.00 น.</label>
               </div>
@@ -79,6 +81,12 @@
                 <input class="form-check-input validateCheck" type="checkbox" value="evening" id="evening" name="evening" disabled>
                 <label class="form-check-label" for="evening"> เย็น ตั้งแต่เวลา 18.00 น. ถึง เวลา 23.00 น.</label>
               </div>
+                </div>
+                <div class="col-6" id="image">
+               
+                </div>
+              </div>
+           
               <hr>
               <div class="mb-3 mt-3">
                 <label for="title" class="form-label">เรื่องที่จัดประชุม/อบรม/สัมนา</label>
@@ -156,18 +164,11 @@
             </div>
             <div class="mb-3 mt-3">
               <label for="participants" class="form-label">ข้อคิดเห็นของผู้รับบริการ</label>
-              <textarea class="form-control" id="comment" name="comment"></textarea>
+              <textarea class="form-control" id="comment" name="comment" readonly></textarea>
             </div>
             <div class="row">
-              <h6>ผู้จองห้องประชุม</h6>
-              <div class="form-check">
-                <label class="form-check-label" for="checkBooker">
-                  <input class="form-check-input" type="checkbox" value="chacked" id="checkBooker" readonly>
-                  เหมือนกับผู้ประสาน
-                </label>
-              </div>
               <div class="col-md-6">
-                <label for="bookerName" class="form-label">ลงชื่อ</label>
+                <label for="bookerName" class="form-label">ผู้จองห้องประชุม</label>
                 <input type="text" class="form-control" id="bookerName" name="bookerName" readonly>
               </div>
               <div class="col-md-6">
