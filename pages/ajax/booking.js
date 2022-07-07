@@ -130,10 +130,12 @@ const createCalendar = (events) => {
     eventSources: [
       {
         events,
-        eventClick: (info) => {},
         borderColor: "blue",
       },
     ],
+    eventClick: function(info) {
+     console.log(info.event)
+    },
     dateClick: function (info) {
       checkBooking(`${roomId.value}`, `${info.dateStr}`);
       // alert("Clicked on: " + info.dateStr);

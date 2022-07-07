@@ -100,7 +100,8 @@ const seeDetail = (bookingId) => {
       <option value="4" ${ format == 4 ? "selected" : false }>แบบงานเลี้ยงกลางคืน</option>
       `);
 
-      let reducer = bookingDetailObj.food.reduce((a, b) => a * b);
+      let reducer = bookingDetailObj.food.reduce((a, b) => Number(a) + Number(b));
+      console.log(reducer)
       if (reducer == 0) {
         $("#food1").prop("checked", true);
       } else {

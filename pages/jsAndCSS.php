@@ -9,6 +9,8 @@
 <script src='../assets/fullcalendar5.11.0/lib/main.js'></script>
 <script src='../assets/fullcalendar5.11.0/lib/locales-all.js'></script>
 <script src="../assets/js/moment-with-locales.js"></script>
+
+
 <script>
   moment.locale('th');
 </script>
