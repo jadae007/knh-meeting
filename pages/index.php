@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,29 +7,29 @@
   <title>KNH MEETING</title>
   <?php require_once('jsAndCss.php'); ?>
 </head>
-
 <body>
   <div class="container">
     <div class="row mt-5">
       <div class="col-3">
       </div>
       <div class="col-6">
-        <div class="card">
+        <div class="card" style="top: 50%;">
           <div class="card-body">
             <div class="row mb-5 text-center">
               <h2>KNH-Meeting </h2>
               <h5 class="text-muted">Login to continue.</h5>
             </div>
-            <form>
+            <form method="POST" action="query/login" enctype="multipart/form-data" id="loginForm">
               <div class="form-outline mb-4">
-                <input type="email" id="form2Example1" class="form-control" />
-                <label class="form-label" for="form2Example1">Email address</label>
+                <input type="email" id="email" name="email" class="form-control" />
+                <label class="form-label" for="email">Email address</label>
               </div>
               <div class="form-outline mb-4">
-                <input type="password" id="form2Example2" class="form-control" />
-                <label class="form-label" for="form2Example2">Password</label>
+                <input type="password" id="password" name="password" class="form-control" />
+                <label class="form-label" for="password">Password</label>
               </div>
-              <a href="main" class="btn btn-primary btn-block mb-4">Login</a>
+          
+              <button type="submit" class="btn btn-primary btn-block mb-4">Login</button>
               <!-- <button type="button" class="btn btn-primary btn-block mb-4">Login</button> -->
             </form>
           </div>
@@ -40,8 +39,7 @@
       </div>
     </div>
   </div>
-
-
+  <script src="ajax/index.js"></script>
 </body>
 
 </html>

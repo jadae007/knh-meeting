@@ -1,7 +1,9 @@
 <?php 
+session_start();
 require('connect.php');
 $selectedDate = $_POST['selectedDate'];
 $roomId = $_POST['selectedRoom'];
+$userId = $_SESSION['userId'];
 
 if(isset($_POST['morning'])){
   $morning = $_POST['morning'];
@@ -51,6 +53,9 @@ if($Food = "needFood"){
 $stringFood = serialize($arrayFood);
 
 if($morning != "" && $afterNoon !="" && $evening != ""){
+  $endAllDay = $selectedDate . " 23:00:00";
+  $startAllDay  = $selectedDate ." 08:00:00";
+  
   $sql = "INSERT INTO
   `booking`(
       `roomId`,
@@ -68,13 +73,14 @@ if($morning != "" && $afterNoon !="" && $evening != ""){
       `comment`,
       `bookerName`,
       `bookerTel`,
+      `bookerUser`,
       `status`
   )
   VALUES (
       '$roomId',
       '$title',
-      '$selectedDate',
-      '$selectedDate',
+      '$startAllDay ',
+      '$endAllDay ',
       '1',
       '$participants',
       '$departmentName',
@@ -86,6 +92,7 @@ if($morning != "" && $afterNoon !="" && $evening != ""){
       '$comment',
       '$bookerName',
       '$bookerTel',
+      '$userId',
       '1'
   )";
  if(mysqli_query($conn,$sql)){
@@ -116,6 +123,7 @@ if($morning != "" && $afterNoon !="" && $evening != ""){
         `comment`,
         `bookerName`,
         `bookerTel`,
+        `bookerUser`,
         `status`
     )
     VALUES (
@@ -134,6 +142,7 @@ if($morning != "" && $afterNoon !="" && $evening != ""){
         '$comment',
         '$bookerName',
         '$bookerTel',
+        '$userId',
         '1'
     )";
     if(mysqli_query($conn,$sql)){
@@ -163,6 +172,7 @@ if($morning != "" && $afterNoon !="" && $evening != ""){
         `comment`,
         `bookerName`,
         `bookerTel`,
+        `bookerUser`,
         `status`
     )
     VALUES (
@@ -181,6 +191,7 @@ if($morning != "" && $afterNoon !="" && $evening != ""){
         '$comment',
         '$bookerName',
         '$bookerTel',
+        '$userId',
         '1'
     )";
     if(mysqli_query($conn,$sql)){
@@ -210,6 +221,7 @@ if($morning != "" && $afterNoon !="" && $evening != ""){
         `comment`,
         `bookerName`,
         `bookerTel`,
+        `bookerUser`,
         `status`
     )
     VALUES (
@@ -228,6 +240,7 @@ if($morning != "" && $afterNoon !="" && $evening != ""){
         '$comment',
         '$bookerName',
         '$bookerTel',
+        '$userId',
         '1'
     )";
     if(mysqli_query($conn,$sql)){

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 29, 2022 at 09:47 AM
+-- Generation Time: Jul 08, 2022 at 11:07 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.30
 
@@ -44,6 +44,7 @@ CREATE TABLE `booking` (
   `comment` varchar(255) DEFAULT NULL,
   `bookerName` varchar(200) NOT NULL,
   `bookerTel` varchar(10) NOT NULL,
+  `bookerUser` int(11) NOT NULL,
   `status` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -51,22 +52,16 @@ CREATE TABLE `booking` (
 -- Dumping data for table `booking`
 --
 
-INSERT INTO `booking` (`id`, `roomId`, `title`, `start`, `end`, `allDay`, `participants`, `departmentName`, `departmentTel`, `coordinatorName`, `coordinatorTel`, `formatId`, `food`, `comment`, `bookerName`, `bookerTel`, `status`) VALUES
-(1, 1, 'ทดสอบประชุม', '2022-06-21 08:30:00', '2022-06-21 12:00:00', 0, 30, 'ศูนย์คอมพิวเตอร์', '4530', 'ธนพงศ์ เขียวโพธิ์', '0970616129', 3, NULL, 'จัดโต๊ะ 4 โต๊ะ', 'ธนพงศ์ เขียวโพธิ์', '4530', 0),
-(2, 1, 'ทดสอบ2', '2022-06-21 13:00:00', '2022-06-21 16:30:00', 0, 60, 'ศูนย์คอมพิวเตอร์', '4530', 'ธนพงศ์ เขียวโพธิ์', '0970616129', 1, NULL, NULL, 'ธนพงศ์ เขียวโพธิ์', '4530', 1),
-(3, 1, 'ทดสอบ 1', '2022-06-24 08:30:00', '2022-06-24 12:00:00', 0, 10, 'ศูนย์คอมพิวเตอร์', '4530', 'ธนพงศ์', '0970616129', 3, NULL, NULL, 'ธนพงศ์', '4530', 1),
-(4, 1, 'ทดสอบ 2 ', '2022-06-24 13:00:00', '2022-06-24 16:30:00', 0, 5, 'ศูนย์คอมพิวเตอร์', '4530', 'ธนพงศ์', '0970616129', 1, NULL, NULL, 'ธนพงศ์', '4530', 1),
-(5, 1, 'ทดสอบ 3', '2022-06-24 18:00:00', '2022-06-24 23:00:00', 0, 3, 'IT Center', '4530', 'Tanapong', '0970616129', 2, NULL, NULL, 'Tanapong Keawpho', '0970616129', 1),
-(6, 1, 'ทดสอบ 23 เย็น', '2022-06-23 18:00:00', '2022-06-23 23:00:00', 1, 11, 'ศูนย์คอมพิวเตอร์', '4530', 'ธนพงศ์', '0970616129', 1, NULL, 'กกกก', 'ธนพงศ์', '0970616129', 1),
-(9, 1, 'title', '2022-06-21 00:00:00', '2022-06-21 23:00:00', 0, 123, 'ศูนย์คอมพิวเตอร์', '4530', 'ธนพงศ์', '0970616129', 1, 'a:4:{i:0;i:0;i:1;i:0;i:2;i:0;i:3;i:0;}', 'comment', 'ธนพงศ์', '0970616129', 1),
-(16, 1, 'เช้า', '2022-06-22 08:30:00', '2022-06-22 12:00:00', 0, 1, 'ศูนย์คอมพิวเตอร์', '4530', 'ธนพงศ์', '0970616129', 1, 'a:4:{i:0;i:0;i:1;i:0;i:2;i:0;i:3;i:0;}', 'd', 'ธนพงศ์', '0970616129', 1),
-(17, 1, 'เช้า', '2022-06-22 13:00:00', '2022-06-22 16:30:00', 0, 1, 'ศูนย์คอมพิวเตอร์', '4530', 'ธนพงศ์', '0970616129', 1, 'a:4:{i:0;i:0;i:1;i:0;i:2;i:0;i:3;i:0;}', 'd', 'ธนพงศ์', '0970616129', 1),
-(18, 1, 'ทดสอบ', '2022-06-22 18:00:00', '2022-06-22 23:00:00', 0, 12, 'ศูนย์คอมพิวเตอร์', '4530', 'ธนพงศ์', '0970616129', 1, 'a:4:{i:0;i:0;i:1;i:0;i:2;i:0;i:3;i:0;}', '', 'ธนพงศ์', '0970616129', 1),
-(19, 1, 'title', '2022-06-25 08:30:00', '2022-06-25 12:00:00', 0, 11, 'ศูนย์คอมพิวเตอร์', '4530', 'ธนพงศ์', '0970616129', 1, 'a:4:{i:0;i:0;i:1;i:0;i:2;i:0;i:3;i:0;}', 'dd', 'ธนพงศ์', '0970616129', 1),
-(20, 1, 'test', '2022-06-25 13:00:00', '2022-06-25 16:30:00', 0, 1, 'ศูนย์คอมพิวเตอร์', '4530', 'ธนพงศ์', '0970616129', 1, 'a:4:{i:0;i:0;i:1;i:0;i:2;i:0;i:3;i:0;}', '33', 'ธนพงศ์', '0970616129', 1),
-(21, 1, 'title', '2022-06-25 18:00:00', '2022-06-25 23:00:00', 0, 1, 'ศูนย์คอมพิวเตอร์', '4530', 'ธนพงศ์', '0970616129', 1, 'a:4:{i:0;i:0;i:1;i:0;i:2;i:0;i:3;i:0;}', 'ddd', 'ธนพงศ์', '0970616129', 1),
-(22, 1, 'title', '2022-06-26 08:30:00', '2022-06-26 12:00:00', 0, 1, 'ศูนย์คอมพิวเตอร์', '4530', 'ธนพงศ์', '0970616129', 1, 'a:4:{i:0;s:1:\"5\";i:1;s:2:\"20\";i:2;s:2:\"10\";i:3;s:2:\"13\";}', 'ddddd', 'ธนพงศ์', '0970616129', 1),
-(23, 1, 'จองทั้งวัน', '2022-06-27 00:00:00', '2022-06-27 00:00:00', 1, 10, 'ศูนย์คอมพิวเตอร์', '4530', 'ธนพงศ์', '0970616129', 1, 'a:4:{i:0;i:0;i:1;i:0;i:2;i:0;i:3;i:0;}', '5555', 'ธนพงศ์', '0970616129', 1);
+INSERT INTO `booking` (`id`, `roomId`, `title`, `start`, `end`, `allDay`, `participants`, `departmentName`, `departmentTel`, `coordinatorName`, `coordinatorTel`, `formatId`, `food`, `comment`, `bookerName`, `bookerTel`, `bookerUser`, `status`) VALUES
+(36, 1, 'ทดสอบ เช้าเย็น', '2022-07-08 08:30:00', '2022-07-08 12:00:00', 0, 10, 'ศูนย์คอมพิวเตอร์', '4530', 'ธนพงศ์', '0970616129', 3, 'a:4:{i:0;i:0;i:1;i:0;i:2;i:0;i:3;i:0;}', '', 'ธนพงศ์', '0970616129', 0, 1),
+(37, 1, 'ทดสอบ เช้าเย็น', '2022-07-08 18:00:00', '2022-07-08 23:00:00', 0, 10, 'ศูนย์คอมพิวเตอร์', '4530', 'ธนพงศ์', '0970616129', 3, 'a:4:{i:0;i:0;i:1;i:0;i:2;i:0;i:3;i:0;}', '', 'ธนพงศ์', '0970616129', 0, 1),
+(38, 3, 'ทดสอบเช้าบ่าย', '2022-07-09 08:30:00', '2022-07-09 12:00:00', 0, 10, 'ศูนย์คอมพิวเตอร์', '4530', 'ธนพงศ์', '0970616129', 1, 'a:4:{i:0;i:0;i:1;i:0;i:2;i:0;i:3;i:0;}', '', 'ธนพงศ์', '0970616129', 0, 1),
+(39, 3, 'ทดสอบเช้าบ่าย', '2022-07-09 13:00:00', '2022-07-09 16:30:00', 0, 10, 'ศูนย์คอมพิวเตอร์', '4530', 'ธนพงศ์', '0970616129', 1, 'a:4:{i:0;i:0;i:1;i:0;i:2;i:0;i:3;i:0;}', '', 'ธนพงศ์', '0970616129', 0, 1),
+(40, 3, 'ทดสอบ', '2022-07-08 00:00:00', '2022-07-08 00:00:00', 1, 11, 'ศูนย์คอมพิวเตอร์', '4530', 'ธนพงศ์', '0970616129', 3, 'a:4:{i:0;s:2:\"10\";i:1;s:2:\"10\";i:2;s:2:\"10\";i:3;s:2:\"10\";}', '', 'ธนพงศ์', '0970616129', 0, 1),
+(41, 3, 'ทดสอบ', '2022-07-10 08:00:00', '2022-07-10 23:00:00', 1, 123, 'ศูนย์คอมพิวเตอร์', '4530', 'ธนพงศ์', '0970616129', 1, 'a:4:{i:0;i:0;i:1;i:0;i:2;i:0;i:3;i:0;}', '', 'ธนพงศ์', '0970616129', 0, 1),
+(42, 1, 'ทดสอบ', '2022-07-07 08:30:00', '2022-07-07 12:00:00', 0, 1, 'ศูนย์คอมพิวเตอร์', '4530', 'ธนพงศ์', '0970616129', 2, 'a:4:{i:0;i:0;i:1;i:0;i:2;i:0;i:3;i:0;}', '', 'ธนพงศ์', '0970616129', 0, 1),
+(43, 1, 'ทดสอบ', '2022-07-07 08:30:00', '2022-07-07 12:00:00', 0, 1, 'ศูนย์คอมพิวเตอร์', '4530', 'ธนพงศ์', '0970616129', 2, 'a:4:{i:0;i:0;i:1;i:0;i:2;i:0;i:3;i:0;}', '', 'ธนพงศ์', '0970616129', 0, 1),
+(44, 1, 'ทดสอบ user', '2022-07-09 18:00:00', '2022-07-09 23:00:00', 0, 1, 'ศูนย์คอมพิวเตอร์', '4530', 'ธนพงศ์', '0970616129', 1, 'a:4:{i:0;i:0;i:1;i:0;i:2;i:0;i:3;i:0;}', '', 'ธนพงศ์', '0970616129', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -108,11 +103,34 @@ CREATE TABLE `room` (
 
 INSERT INTO `room` (`id`, `name`, `description`, `image`) VALUES
 (1, 'ห้องประชุมสาระ', 'มีเวที', '1.jpg'),
-(2, 'ห้องทดสอบ 1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at vestibulum velit, sit amet rutrum dui. Vivamus euismod tortor libero, vitae imperdiet dui consectetur ut. Pellentesque quis egestas tortor. Nam commodo aliquet consectetur. Phasellus sit ame', NULL),
-(3, 'ห้องประชุมราชพฤกษ์', 'ชั้น 6 ตึกใหม่', '2.jpg'),
+(2, 'ห้องทดสอบ 1', 'Lorem ipsum dolor sit amet', NULL),
+(3, 'ห้องประชุมราชพฤกษ์', 'ชั้น 6 ตึกใหม่', 'ห้องประชุมราชพฤกษ์.jpg'),
 (4, 'ห้องประชุม 3', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam libero est, euismod sit amet felis at, aliquam consectetur eros. In tincidunt turpis et sapien viverra, eu rhoncus elit efficitur. Nunc.', '3.jpg'),
 (5, 'ห้องประชุม 4', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit et augue sed ultrices. Nunc at libero justo. Donec feugiat orci id ipsum pharetra, et bibendum turpis consequat. Donec ac diam luctus massa placerat consectetur eget consectetur feli', '4.jpg'),
 (7, 'ห้องประชุมทดสอบ2', 'ทดสอบ', 'ห้องประชุมทดสอบ2.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `role` int(11) NOT NULL,
+  `active` int(1) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `email`, `username`, `password`, `role`, `active`) VALUES
+(1, 'it18@local.knh', 'ศูนย์คอมพิวเตอร์', '0de3d5bb16a3d62d35756117c8d23d6810787ec3461412b04d631053571fb31d', 0, 1),
+(2, 'jadae2225@gmail.com', 'เด้ ศูนย์คอม', '0de3d5bb16a3d62d35756117c8d23d6810787ec3461412b04d631053571fb31d', 1, 1);
 
 --
 -- Indexes for dumped tables
@@ -138,6 +156,12 @@ ALTER TABLE `room`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -145,7 +169,7 @@ ALTER TABLE `room`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `format`
@@ -158,6 +182,12 @@ ALTER TABLE `format`
 --
 ALTER TABLE `room`
   MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
