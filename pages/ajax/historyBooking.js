@@ -1,0 +1,49 @@
+$(document).ready(function () {
+  showHistoryBooking()
+});
+
+const showHistoryBooking = () => {
+  let userId = $("#userId").val()
+  $.ajax({
+    type: "GET",
+    url: "query/historyBooking",
+    data: {
+      userId,
+    },
+    success: function (response) {
+    const { historyBooking } = JSON.parse(response);
+    console.log(historyBooking);
+    $("#tableBooked").DataTable().destroy();
+    $("#tbody").children().remove();
+    if (!!historyBooking) {
+      historyBooking.forEach((element, index) => {
+        let period = element.allDay == "1" ? "ทั้งวัน" : false;
+        if (!Boolean(period)) {
+          if (moment(element.start).format("LT") == "8:30") {
+            period = "เช้า";
+          } else if (moment(element.start).format("LT") == "13:00") {
+            period = "บ่าย";
+          } else {
+            period = "เย็น";
+          }
+        }
+        $("#tbody").append(`
+        <tr style="cursor:pointer;" onclick="seeDetail(${element.bookingId})">
+          <th scope="row">${++index}</th>
+          <td>${element.name}</td>
+          <td data-order=${moment(element.start).format("x")}>${moment(
+          element.start
+        ).format("LLLL")}</td>
+          <td data-order=${moment(element.end).format("x")}>${moment(
+          element.end
+        ).format("LLLL")}</td>
+          <td>${period}</td>
+          
+        </tr>
+        `);
+      });
+    }
+    $("#tableBooked").DataTable();
+    },
+  });
+};

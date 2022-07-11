@@ -19,7 +19,7 @@
         </li> 
         <?php }  ?>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="historyBooking" id="navhistoryBooking">การของของฉัน</a>
+          <a class="nav-link" aria-current="page" href="historyBooking" id="navhistoryBooking">การจองของฉัน</a>
         </li> 
          <!-- <li class="nav-item">
           <a class="nav-link" href="#">Link</a>

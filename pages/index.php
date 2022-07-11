@@ -21,16 +21,14 @@
             </div>
             <form method="POST" action="query/login" enctype="multipart/form-data" id="loginForm">
               <div class="form-outline mb-4">
-                <input type="email" id="email" name="email" class="form-control" />
+                <input type="email" id="email" name="email" class="form-control" required/>
                 <label class="form-label" for="email">Email address</label>
               </div>
               <div class="form-outline mb-4">
-                <input type="password" id="password" name="password" class="form-control" />
+                <input type="password" id="password" name="password" class="form-control" required/>
                 <label class="form-label" for="password">Password</label>
               </div>
-          
               <button type="submit" class="btn btn-primary btn-block mb-4">Login</button>
-              <!-- <button type="button" class="btn btn-primary btn-block mb-4">Login</button> -->
             </form>
           </div>
         </div>
