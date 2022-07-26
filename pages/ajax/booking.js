@@ -77,7 +77,6 @@ $(document).ready(function () {
     }
   });
   $(".validateCheck").change(function (e) {
-    console.log(checkBoxChecker());
     e.preventDefault();
     if (checkBoxChecker()) return $(".validateCheck").removeClass("is-invalid");
   });

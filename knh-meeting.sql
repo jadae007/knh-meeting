@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 08, 2022 at 11:07 AM
+-- Generation Time: Jul 26, 2022 at 09:18 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.30
 
@@ -59,9 +59,8 @@ INSERT INTO `booking` (`id`, `roomId`, `title`, `start`, `end`, `allDay`, `parti
 (39, 3, 'ทดสอบเช้าบ่าย', '2022-07-09 13:00:00', '2022-07-09 16:30:00', 0, 10, 'ศูนย์คอมพิวเตอร์', '4530', 'ธนพงศ์', '0970616129', 1, 'a:4:{i:0;i:0;i:1;i:0;i:2;i:0;i:3;i:0;}', '', 'ธนพงศ์', '0970616129', 0, 1),
 (40, 3, 'ทดสอบ', '2022-07-08 00:00:00', '2022-07-08 00:00:00', 1, 11, 'ศูนย์คอมพิวเตอร์', '4530', 'ธนพงศ์', '0970616129', 3, 'a:4:{i:0;s:2:\"10\";i:1;s:2:\"10\";i:2;s:2:\"10\";i:3;s:2:\"10\";}', '', 'ธนพงศ์', '0970616129', 0, 1),
 (41, 3, 'ทดสอบ', '2022-07-10 08:00:00', '2022-07-10 23:00:00', 1, 123, 'ศูนย์คอมพิวเตอร์', '4530', 'ธนพงศ์', '0970616129', 1, 'a:4:{i:0;i:0;i:1;i:0;i:2;i:0;i:3;i:0;}', '', 'ธนพงศ์', '0970616129', 0, 1),
-(42, 1, 'ทดสอบ', '2022-07-07 08:30:00', '2022-07-07 12:00:00', 0, 1, 'ศูนย์คอมพิวเตอร์', '4530', 'ธนพงศ์', '0970616129', 2, 'a:4:{i:0;i:0;i:1;i:0;i:2;i:0;i:3;i:0;}', '', 'ธนพงศ์', '0970616129', 0, 1),
 (43, 1, 'ทดสอบ', '2022-07-07 08:30:00', '2022-07-07 12:00:00', 0, 1, 'ศูนย์คอมพิวเตอร์', '4530', 'ธนพงศ์', '0970616129', 2, 'a:4:{i:0;i:0;i:1;i:0;i:2;i:0;i:3;i:0;}', '', 'ธนพงศ์', '0970616129', 0, 1),
-(44, 1, 'ทดสอบ user', '2022-07-09 18:00:00', '2022-07-09 23:00:00', 0, 1, 'ศูนย์คอมพิวเตอร์', '4530', 'ธนพงศ์', '0970616129', 1, 'a:4:{i:0;i:0;i:1;i:0;i:2;i:0;i:3;i:0;}', '', 'ธนพงศ์', '0970616129', 1, 1);
+(45, 1, 'ทดสอบ', '2022-07-11 08:30:00', '2022-07-11 12:00:00', 0, 12, 'ศูนย์คอมพิวเตอร์', '4530', 'ธนพงศ์', '0970616129', 2, 'a:4:{i:0;i:0;i:1;i:0;i:2;i:0;i:3;i:0;}', '', 'ธนพงศ์', '0970616129', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -104,7 +103,7 @@ CREATE TABLE `room` (
 INSERT INTO `room` (`id`, `name`, `description`, `image`) VALUES
 (1, 'ห้องประชุมสาระ', 'มีเวที', '1.jpg'),
 (2, 'ห้องทดสอบ 1', 'Lorem ipsum dolor sit amet', NULL),
-(3, 'ห้องประชุมราชพฤกษ์', 'ชั้น 6 ตึกใหม่', 'ห้องประชุมราชพฤกษ์.jpg'),
+(3, '', '', 'ห้องประชุมราชพฤกษ์.jpg'),
 (4, 'ห้องประชุม 3', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam libero est, euismod sit amet felis at, aliquam consectetur eros. In tincidunt turpis et sapien viverra, eu rhoncus elit efficitur. Nunc.', '3.jpg'),
 (5, 'ห้องประชุม 4', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit et augue sed ultrices. Nunc at libero justo. Donec feugiat orci id ipsum pharetra, et bibendum turpis consequat. Donec ac diam luctus massa placerat consectetur eget consectetur feli', '4.jpg'),
 (7, 'ห้องประชุมทดสอบ2', 'ทดสอบ', 'ห้องประชุมทดสอบ2.jpg');
@@ -169,7 +168,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `format`

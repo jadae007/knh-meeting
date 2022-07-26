@@ -46,7 +46,6 @@ $.ajax({
   },
   success: function (response) {
     const detail = JSON.parse(response)
-    console.log(detail);
     $("#blockquote").text(`แก้ไข ${detail.name}`)
     $("#name").val(detail.name)
     $("#description").val(detail.description)

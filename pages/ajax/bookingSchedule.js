@@ -21,7 +21,6 @@ const showBooked = (start, end) => {
     },
     success: function (response) {
       const { bookingScheduleObj } = JSON.parse(response);
-      console.log(bookingScheduleObj)
       $("#tableBooked").DataTable().destroy();
       $("#tbody").children().remove();
       if (!!bookingScheduleObj) {

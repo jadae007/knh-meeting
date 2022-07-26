@@ -12,7 +12,6 @@ const showHistoryBooking = () => {
     },
     success: function (response) {
     const { historyBooking } = JSON.parse(response);
-    console.log(historyBooking);
     $("#tableBooked").DataTable().destroy();
     $("#tbody").children().remove();
     if (!!historyBooking) {

@@ -9,7 +9,6 @@ const seeDetail = (bookingId) => {
       $("#form")[0].reset();
       $("#format").children().remove();
       const { bookingDetailObj } = JSON.parse(response);
-      console.log(bookingDetailObj);
       let format = Number(bookingDetailObj.formatId);
 
       if (bookingDetailObj.allDay == "1") {
@@ -43,7 +42,6 @@ const seeDetail = (bookingId) => {
       `);
 
       let reducer = bookingDetailObj.food.reduce((a, b) => Number(a) + Number(b));
-      console.log(reducer)
       if (reducer == 0) {
         $("#food1").prop("checked", true);
       } else {
@@ -78,7 +76,6 @@ const cancelBooking = (bookingId) =>{
       dataType: "json",
       success: function (response) {
        const { status , message } = response
-       console.log(status)
       if (status == true) {
         SoloAlert.alert({
           title: "Success!!",
