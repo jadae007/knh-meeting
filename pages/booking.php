@@ -16,6 +16,7 @@
   <div class="container-fluid">
     <div class="row mt-3">
       <input type="hidden" id="roomId" value="<?php echo $_GET['roomId']; ?>">
+      <input type="hidden" id="department" value="<?php echo $_SESSION['department']; ?>">
       <div class="col-1">
       </div>
       <div class="col-10">

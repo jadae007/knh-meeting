@@ -148,6 +148,7 @@ const checkAllDay = (detail) => {
   return Array.prototype.slice.call(detail).some((x) => x.allDay == "1");
 };
 const checkBooking = (roomId, start) => {
+  let department = $("#department").val()
   $.ajax({
     type: "GET",
     url: "query/checkBooking",
@@ -175,6 +176,7 @@ const checkBooking = (roomId, start) => {
           });
           $(".validateCheck").removeClass("is-invalid");
           $("#bookingForm")[0].reset();
+          $("#departmentName").val(department)
           $("#modalBooking").modal("show");
           $("#selectedDate").val(start);
           $("#selectedRoom").val(roomId);
