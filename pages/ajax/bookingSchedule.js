@@ -46,12 +46,18 @@ const showBooked = (start, end) => {
             element.end
           ).format("LLLL")}</td>
             <td>${period}</td>
+            <td>${element.bookerName} ${element.bookerTel}</td>
             
           </tr>
           `);
         });
       }
-      $("#tableBooked").DataTable();
+      $("#tableBooked").DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'print'
+        ]
+    });
     },
   });
 };

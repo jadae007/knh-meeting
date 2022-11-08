@@ -1,4 +1,6 @@
 const seeDetail = (bookingId) => {
+  let userRole = $("#userRole").val()
+
   $.ajax({
     type: "GET",
     url: "query/bookingDetail",
@@ -52,10 +54,16 @@ const seeDetail = (bookingId) => {
       $("#bookerTel").val(bookingDetailObj.bookerTel);
       $("#modalBookingLabel").text('รายละเอียดการจอง'+bookingDetailObj.name + " " +moment(bookingDetailObj.start).format('LL'));
       $("#image").html(` <img src="../assets/images/room/${bookingDetailObj.image}" class="img-thumbnail"  alt="...">`)
-      $("#modalFooter").html(`
-      <button type="button" class="btn btn-danger" id="cancelBooking" onclick="cancelBooking(${bookingDetailObj.bookingId})">ยกเลิกการจอง</button>
-      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      `)
+      let modalFooter  = ""
+      if(userRole == "0"){
+        modalFooter = `
+        <button type="button" class="btn btn-danger" id="cancelBooking" onclick="cancelBooking(${bookingDetailObj.bookingId})">ยกเลิกการจอง</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        `
+      }else{
+        modalFooter = `<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>`
+      }
+      $("#modalFooter").html(modalFooter)
     },
   });
   $("#modalBooking").modal("show");

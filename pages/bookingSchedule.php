@@ -46,6 +46,7 @@
                 <th scope="col">วัน เวลา ที่เริ่ม</th>
                 <th scope="col">วัน เวลา สิ้นสุด</th>
                 <th scope="col">ช่วงเวลา</th>
+                <th scope="col">ผู้ประสานงาน</th>
               </tr>
             </thead>
             <tbody id="tbody">
