@@ -104,6 +104,96 @@
                 <span class="input-group-text">ที่</span>
               </div>
             </div>
+            <div class="row" id="sod">
+              <label for="participants" class="form-label">อุปกรณ์ที่ขอใช้</label>
+              <div class="row">
+                <div class="col-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text">ไมโครโฟนชนิดตั้งโต๊ะจำนวน</span>
+                    <input type="number" min="0" max="999" value="0" id="desktopMicrophone" name="desktopMicrophone" class="form-control" readonly>
+                    <span class="input-group-text">ตัว</span>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text">ไมโครโฟนชนิดตั้งพื้นจำนวน</span>
+                     <input type="number" min="0" max="999" value="0" id="floorMicrophone" name="floorMicrophone" class="form-control" readonly>
+                    <span class="input-group-text">ตัว</span>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text">ไมโครโฟนชนิดไร้สายจำนวน</span>
+                     <input type="number" min="0" max="999" value="0" id="wirelessMicrophone" name="wirelessMicrophone" class="form-control" readonly>
+                    <span class="input-group-text">ตัว</span>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="projector" name="projector" id="projector" disabled>
+                    <label class="form-check-label" for="projector">
+                      เครื่องโปรเจคเตอร์ LCD Projector
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="presentByComputer" name="presentByComputer" id="presentByComputer" disabled>
+                    <label class="form-check-label" for="presentByComputer">
+                      นำเสนองานด้วยคอมพิวเตอร์
+                    </label>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="visualizer" name="visualizer" id="visualizer" disabled>
+                    <label class="form-check-label" for="visualizer">
+                      เครื่องฉายภาพทึบแสง
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="visualizer3D" name="visualizer3D" id="visualizer3D" disabled>
+                    <label class="form-check-label" for="visualizer3D">
+                      เครื่องฉายภาพ 3 มิติ
+                    </label>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="videoPlayer" name="videoPlayer" id="videoPlayer" disabled>
+                    <label class="form-check-label" for="videoPlayer">
+                      เครื่องเล่นเทปวิดิทัศน์
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="takingPictures" name="takingPictures" id="takingPictures" disabled>
+                    <label class="form-check-label" for="takingPictures">
+                      บันทึกภาพถ่าย
+                    </label>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="VdoRecord" name="VdoRecord" id="VdoRecord" disabled>
+                    <label class="form-check-label" for="VdoRecord">
+                      บันทึกวิดีโอ
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="mb-3 mt-3">
               <label for="participants" class="form-label">ข้อคิดเห็นของผู้รับบริการ</label>
               <textarea class="form-control" id="comment" name="comment" readonly></textarea>

@@ -26,6 +26,7 @@ const seeDetail = (bookingId) => {
           $("#evening").prop("checked", true);
         }
       }
+      
       $("#title").val(bookingDetailObj.title);
       $("#participants").val(bookingDetailObj.participants);
       $("#departmentName").val(bookingDetailObj.departmentName);
@@ -48,6 +49,30 @@ const seeDetail = (bookingId) => {
         $("#food1").prop("checked", true);
       } else {
         $("#food2").prop("checked", true);
+      }
+      $("#desktopMicrophone").val(bookingDetailObj.desktopMicrophone);
+      $("#floorMicrophone").val(bookingDetailObj.floorMicrophone);
+      $("#wirelessMicrophone").val(bookingDetailObj.wirelessMicrophone);
+      if(bookingDetailObj.projector == "T"){
+        $("#projector").prop("checked", true);
+      }
+      if(bookingDetailObj.presentByComputer == "T"){
+        $("#presentByComputer").prop("checked", true);
+      }
+      if(bookingDetailObj.visualizer == "T"){
+        $("#visualizer").prop("checked", true);
+      }
+      if(bookingDetailObj.visualizer3D == "T"){
+        $("#visualizer3D").prop("checked", true);
+      }
+      if(bookingDetailObj.videoPlayer == "T"){
+        $("#videoPlayer").prop("checked", true);
+      }
+      if(bookingDetailObj.takingPictures == "T"){
+        $("#takingPictures").prop("checked", true);
+      }
+      if(bookingDetailObj.VdoRecord == "T"){
+        $("#VdoRecord").prop("checked", true);
       }
       $("#comment").val(bookingDetailObj.comment);
       $("#bookerName").val(bookingDetailObj.bookerName);
